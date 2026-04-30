@@ -4,13 +4,13 @@ resource "yandex_compute_instance" "vm" {
   zone        = var.zone
 
   resources {
-    cores  = 2
+    cores  = var.cores
     memory = var.memory
   }
 
   metadata = {
-    ssh-keys        = "ubuntu:${file(var.ssh_key_path)}"
-    enable-oslogin  = "false"
+    ssh-keys       = "ubuntu:${file(var.ssh_key_path)}"
+    enable-oslogin = "false"
   }
 
   boot_disk {
